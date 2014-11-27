@@ -2,29 +2,29 @@
 
 @import 'variables';
 
-@import 'sticky-footer';
-
 @import 'mixins';
 
+@import 'sticky-footer';
+
 header{
-    background: #297499;
+    background: $bluecolor;
     width: 100%;
     text-align: center;
 }
-.logo{
-    width: 20%;
-    margin: 0 40%;
-}
 html{
+    min-height: 100%;
+    position: relative;
     background: #e5e5e5;
 }
 *{
-    font-family:'Cutive Mono', monospace;
+    font-family:$font-stack;
 }
 .wrapper{
     width: 90%;
     margin: 0 auto;
+    @include clearfix;
 }
+
 .iconic{
     width: 50%;
     margin: 2% 25%;
@@ -35,6 +35,10 @@ html{
 }
 
 @media screen and (min-width: 960px){
+.logo{
+    width: 20%;
+    margin: 0 40%;
+}
 .col-3{
     @include equalSpaced(3,5%,100%);
     float: left;
@@ -60,8 +64,8 @@ html{
 } 
 .box h3{
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    font-family: 'Cutive Mono', monospace;
-    background: #297499;
+    font-family: $font-stack;
+    background: $bluecolor;
     border-radius: 10px;
     color: white;
     margin: 20px 40px 0px 40px;
@@ -69,9 +73,10 @@ html{
     transform: translate(200px, -200px);
     -webkit-transition: all 0.2s ease-in-out;
     transition: all 0.2s ease-in-out;
+    
 }
 .box p{
-    font-family: 'Cutive Mono', monospace;
+    font-family: $font-stack;
     font-size: 14px;
     position: relative;
     color: white;
@@ -137,15 +142,16 @@ html{
 } 
 .box2 h4{
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    font-family: 'Cutive Mono', monospace;
-    background: #297499;
+    font-family: $font-stack;
+    background: $bluecolor;
     border-radius: 10px;
     color: white;
     margin: 20px 40px 0px 40px;
+    height: 2.5rem;
 
 }
 .box2 p{
-    font-family: 'Cutive Mono', monospace;
+    font-family: $font-stack;
     font-size: 14px;
     position: relative;
     color: white;
@@ -194,24 +200,27 @@ html{
     }
 } 
 @media screen and (max-width: 959px){
+.logo{
+    width: 40%;
+    margin: 0 30%;
+}    
+    
 .col-3{
     @include equalSpacedNo(1,5%,90%);
     float: left;
-    background: white;
     border-radius: 20px;
-    box-shadow: 2px 2px 5px #767676;
     text-align: center;
     min-height: 230px;
     overflow: hidden;
     margin-bottom: 3%;
+    position: relative;
 }
 .col-3 .iconic{
     width: 40%;
     height: 40%;
 }   
 .box .mask, .box .content{
-    width: 270px;
-    height: 200px;
+    width: 100%;
     position: absolute;
     overflow: hidden;
     top: 0;
@@ -223,8 +232,8 @@ html{
 } 
 .box h3{
     border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    font-family: 'Cutive Mono', monospace;
-    background: #297499;
+    font-family: $font-stack;
+    background: $bluecolor;
     border-radius: 10px;
     color: white;
     margin: 20px 40px 0px 40px;
@@ -234,7 +243,7 @@ html{
     transition: all 0.2s ease-in-out;
 }
 .box p{
-    font-family: 'Cutive Mono', monospace;
+    font-family: $font-stack;
     font-size: 14px;
     position: relative;
     color: white;
@@ -246,7 +255,7 @@ html{
 }
 .box .mask{
     background-color: rgba(186, 12, 113, 0.3);
-    width: 350px;
+    width: 500px;
     padding: 105px;
     height: 250px;
     opacity: 0;
@@ -257,8 +266,8 @@ html{
 }
 .box:hover .mask{
     opacity:1; 
-    transform: translate(-80px, -125px) rotate(45deg);
-    -webkit-transform: translate(-80px, -125px) rotate(45deg);
+    transform: translate(0px, 0px) rotate(0deg);
+    -webkit-transform: translate(0px, 0px) rotate(0deg);
 }
 .box:hover h3{
     transform: translate(0px,0px);
@@ -278,36 +287,98 @@ html{
     transition: all 0.4s ease-in-out;
 }
     
-.col-2{
-    @include equalSpacedNo(2,5%,85%);
+.col-2, .col-5{
+    @include equalSpacedNo(1,5%,90%);
     float: left;
-    background: white;
     border-radius: 20px;
-    box-shadow: 2px 2px 5px #767676;
     text-align: center;
     overflow: hidden;
     margin-bottom: 5%;
-        }
-.col-5{
-    @include equalSpacedNo(2,5%,85%);
-    float: left;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 2px 2px 5px #767676;
-    text-align: center;
+    position: relative;
+    height: 200px;
+}
+
+.box2 .mask2, .box2 .content2{
+    width: 100%;
+    position: absolute;
     overflow: hidden;
-        }
+    top: 0;
+    left: 0;
+}
+.box2 .iconic{
+    display: block;
+    position: relative;
+} 
+.box2 h4{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    font-family: $font-stack;
+    background: $bluecolor;
+    border-radius: 10px;
+    color: white;
+    margin: 20px 40px 0px 40px;
+    height: 2.5rem;
+
+}
+.box2 p{
+    font-family: $font-stack;
+    font-size: 14px;
+    position: relative;
+    color: white;
+    padding: 0px 20px 0px;
+    transform: translate(-200px, 200px);
+    -webkit-transform: translate(200px, -200px);
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+}
+.box2 .mask2{
+    background-color: rgba(186, 12, 113, 0.3);
+    width: 400px;
+    padding: 105px;
+    height: 300px;
+    opacity: 0;
+    transform: translate(265px, 145px) rotate(45deg);
+    -webkit-transform: translate(265px, 145px) rotate(45deg);
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+}
+.box2 .btn { 
+    transform: translate(0px, 100px);
+    -webkit-transform: translate(0px, 100px);
+    transition: all 0.2s 0.1s ease-in-out;
+    -webkit-transition: all 0.2s 0.1s ease-in-out;
+} 
+.box2:hover .btn { 
+    transform: translate(0px,0px); 
+    -webkit-transform: translate(0px,0px); 
+    transition-delay: 0.5s;
+    -webkit-transition-delay: 0.5s;
+}
+.box2:hover .mask2{
+    opacity:1; 
+    transform: translate(-80px, -125px) rotate(45deg);
+    -webkit-transform: translate(-80px, -125px) rotate(45deg);
+}
+.box2:hover h4{
+     
+}
+.box2:hover p{
+    transform: translate(0px,0px); 
+    -webkit-transform: translate(0px,0px); 
+    transition-delay: 0.4s;
+    -webkit-transition-delay: 0.4s;
+    }
+
 }
 .iconic-cogs-cog-large{
-  fill:#ba0c71;
+  fill:$pink;
   stroke:#5c93af;
 }
 .iconic-cogs-cog-small{
-  fill:#297499;
+  fill: $bluecolor;
   stroke:#aaa;
 }
 .iconic-tools-screwdriver{
-    fill: #297499; 
+    fill: $bluecolor; 
 }
 .iconic-tools-screwdriver-head{
     fill: #adadad;
@@ -316,13 +387,13 @@ html{
     fill: #adadad;
 }
 .iconic-tools-hammer-handle{
-    fill: #ba0c71;
+    fill: $pink;
 }
 .iconic-script-body{
-    fill: #ba0c71;
+    fill: $pink;
 }
 .btn{
-    background-color: #297499;
+    background-color: $bluecolor;
     color: white;
     border: none;
     border-radius: 10px;
@@ -332,7 +403,7 @@ html{
     height: 2.5rem;
 }
 .btn:hover{
-    background-color: #ba0c71;
+    background-color: $pink;
     color: white;
     border: none;
     border-radius: 10px;
@@ -345,4 +416,11 @@ html{
 
 .box{
 
+}
+.foot{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
 }

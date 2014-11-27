@@ -12,3 +12,10 @@ width: ($container_width - ($margin * ($number_of_columns - 1 ) ) ) / $number_of
 margin-left: $margin;
 
 }
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
